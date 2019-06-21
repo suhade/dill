@@ -1,0 +1,27 @@
+<html>
+<head> 
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="product">
+		<div class="product-small-img">
+			<img src="img4/one.jpg" onclick="myFunction(this)">
+			<img src="img4/two.jpg" onclick="myFunction(this)">
+			<img src="img4/three.jpg" onclick="myFunction(this)">
+			<img src="img4/four.jpg" onclick="myFunction(this)">
+			<img src="img4/five.jpg" onclick="myFunction(this)">
+		</div>
+		<div class="img-container">
+			<img id="imageBox" src="img4/one.jpg">
+		</div>
+	</div>
+		<script>
+			function myFunction(smallImg)
+			{
+			var fullImg = document.getElementById("imageBox");
+			fullImg.src = smallImg.src;
+			}
+		</script>
+</body>
+</html>

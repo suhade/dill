@@ -1,0 +1,126 @@
+<html>
+<head>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript">
+		function validateForm() 
+		{
+		var firstName = document.signForm.fName.value;
+		var lastName = document.signForm.lName.value;
+		var email = document.signForm.emailId.value;
+		var password = document.signForm.pass.value;
+		var repassword = document.signForm.repass.value;
+		var secAnswer = document.signForm.secAns.value;
+		
+		if (firstName == ""){
+			document.getElementById("sNotice").innerHTML= "First Name field is empty.";
+			return false;
+		}
+		
+		if (lastName == ""){
+			document.getElementById("sNotice").innerHTML= "Last Name field is empty.";
+			return false;
+		}
+		
+		if (email == ""){
+			document.getElementById("sNotice").innerHTML= "Email field is empty.";
+			return false;
+		}
+		
+		if (password == ""){
+			document.getElementById("sNotice").innerHTML= "password field is empty.";
+			return false;
+		}
+		
+		if (repassword == ""){
+			document.getElementById("sNotice").innerHTML= "Retype Password field is empty.";
+			return false;
+		}
+		
+		if (secAnswer == ""){
+			document.getElementById("sNotice").innerHTML= "Security Answer field is empty.";
+			return false;
+		}
+		
+		if (password !== repassword) {
+		document.getElementById("sNotice").innerHTML ="Password do not match.";
+		}
+		
+		var atPos = email.indexOf("@");
+		var dotPos = email.lastIndexOf(".");
+		
+		if(atPos <1 || dotPos < atPos +2 || dotPos+2 >=email.length)
+		{
+			document.getElementById("sNotice").innerHTML = "Email is invalid.";
+			return false;
+		}
+			document.getElementById("sNotice").innerHTML ="";
+			return true;
+		}
+		</script>
+</head>
+<body bgcolor="#2988f1">
+<div id="sWrapper">
+<div id="sHeader"> Sign Up</div>
+<form name="signForm" action="register.php" method="post" onsubmit="return  validateForm()">
+	<div class="sRows">
+	<div class="sLabel">First Name</div>
+	<div class="sInput">
+		<input type ="text" class="inputCls" name="fName">
+	</div>
+	</div>
+	
+	<div class="sRows">
+	<div class="sLabel">Last Name</div>
+	<div class="sInput">
+		<input type ="text" class="inputCls" name="lName">
+	</div>
+	</div>
+	
+	<div class="sRows">
+	<div class="sLabel">Email:</div>
+	<div class="sInput">
+		<input type ="text" class="inputCls" name="emailId">
+	</div>
+	</div>
+	
+	<div class="sRows">
+	<div class="sLabel">Enter Password:</div>
+	<div class="sInput">
+		<input type ="password" class="inputCls" name="pass">
+	</div>
+	</div>
+	
+	<div class="sRows">
+	<div class="sLabel">Retype Password:</div>
+	<div class="sInput">
+		<input type ="password" class="inputCls" name="repass">
+	</div>
+	</div>
+	
+	<div class="sRows">
+	<div class="sLabel">Security Question:</div>
+	<div class="sInput">
+		<select class="selCls" name="secQues">
+		<option>Your first school's name</option>
+		<option>Your pet name</option>
+		<option>Your favorite teacher's name</option>
+		</section>
+	</div>
+	</div>
+	
+	<div class="sRows">
+	<div class="sLabel">Security Answer:</div>
+	<div class="sInput">
+		<input type ="text" class="inputCls" name="secAns">
+	</div>
+	</div>
+	
+	<div class="sRows">
+		<input type="submit" value="Submit">
+	</div>
+</form>
+
+<div id="sNotice"></div>
+</div>
+</body>
+</html>
